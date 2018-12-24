@@ -2,6 +2,8 @@
 
 This is a Polkadot Validator Node Docker Image base on Ubuntu 16.04 (Jelastic PaaS ready)
 
+Refer to the [following tutorial](https://medium.com/coinmonks/polkadot-hello-world-1-cost-effective-cloud-deployment-of-a-validator-node-d3c1bbdb9200) for more instructions.
+
 ## Docker Build Commands
 
  * docker build -t=talfco/clb-polkadot:v0.2 .
@@ -9,24 +11,8 @@ This is a Polkadot Validator Node Docker Image base on Ubuntu 16.04 (Jelastic Pa
  * docker push talfco/clb-polkadot:v0.2
  
  
- 
 ## Miscellaneous 
 * Polkadot DB Location: `/.local/share/Polkadot/chains#` will be mapped to the `/data`
  
  
-## Network stuff
-
-    # checking dropped hosts 
-    iptables -nvL sshguard
-    
-    # get all network devices
-    ip a
-    # 
-    tcpdump -nvvv -i any -c 100 -s 100 -w dump.out 
-    tcpdump -nvvv -i venet0 -c 100 -s 100 -w dump.out 
-    
-    tcpdump -w dump.out -i venet0 -c 10  -vvv
-     
-    # checking strength of ssh keys
-    for key in ~/.ssh/id_*; do ssh-keygen -l -f "${key}"; done | uniq
     
