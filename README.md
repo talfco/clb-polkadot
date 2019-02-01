@@ -6,13 +6,12 @@ Refer to the [following tutorial](https://medium.com/coinmonks/polkadot-hello-wo
 
 ## Docker Build Commands
 
- * docker build -t=talfco/clb-polkadot:v0.2 .
- * docker run --rm -it talfco/clb-polkadot:v0.2 polkadot
+ * docker build -t=talfco/clb-polkadot:v0.2.3 .
+ * docker run --rm -it --mount source=data,destination=/media/disk1/chains  talfco/clb-polkadot:v0.2.3
  * docker push talfco/clb-polkadot:v0.2
  
  
 ## Miscellaneous 
-* Polkadot DB Location: `/.local/share/Polkadot/chains#` will be mapped to the `/data`
+* Polkadot DB Location: will be mapped to the `/data`
  
  
-    
