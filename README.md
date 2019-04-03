@@ -6,9 +6,9 @@ Refer to the [following tutorial](https://medium.com/coinmonks/polkadot-hello-wo
 
 ## Docker Build Commands
 
- * docker build -t=talfco/clb-polkadot:v0.2 .
- * docker run --rm -it talfco/clb-polkadot:v0.2 polkadot
- * docker push talfco/clb-polkadot:v0.2
+ * docker build -t=talfco/clb-polkadot:v0.3 .
+ * docker run --rm -it talfco/clb-polkadot:v0.3 polkadot
+ * docker push talfco/clb-polkadot:v0.3
  
  
 ## Miscellaneous 
