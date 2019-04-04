@@ -8,7 +8,7 @@ RUN apt-get update && \
 # Install polkadot
 RUN curl https://sh.rustup.rs -sSf | sh -s -- -y && \
 	export PATH=$PATH:$HOME/.cargo/bin && \
-	cargo install --git https://github.com/paritytech/polkadot.git --tag v0.4.1 polkadot
+	cargo install --git https://github.com/paritytech/polkadot.git --tag v0.4.2 polkadot
 #RUN	mkdir -p /root/.local/share/Polkadot
 RUN cp /root/.cargo/bin/polkadot /usr/local/bin/
 
