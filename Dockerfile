@@ -6,10 +6,20 @@ RUN apt-get update && \
 	apt-get install -y cmake pkg-config libssl1.0.0  libssl-dev git curl clang libclang-dev
 
 # Install polkadot
+#RUN curl https://sh.rustup.rs -sSf | sh -s -- -y && \
+#	export PATH=$PATH:$HOME/.cargo/bin && \
+#	cargo install --git https://github.com/paritytech/polkadot.git --tag v0.4.3 polkadot
+
 RUN curl https://sh.rustup.rs -sSf | sh -s -- -y && \
 	export PATH=$PATH:$HOME/.cargo/bin && \
+	rustup default nightly && \
+    rustup target add wasm32-unknown-unknown --toolchain nightly && \
+    cargo +nightly install --git https://github.com/alexcrichton/wasm-gc && \
+    rustup default stable && \
+    rustup update && \
 	cargo install --git https://github.com/paritytech/polkadot.git --tag v0.4.3 polkadot
-#RUN	mkdir -p /root/.local/share/Polkadot
+
+
 RUN cp /root/.cargo/bin/polkadot /usr/local/bin/
 
 RUN rm -rf /root/.cargo/ && \
