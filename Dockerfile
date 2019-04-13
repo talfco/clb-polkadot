@@ -10,14 +10,24 @@ RUN apt-get update && \
 #	export PATH=$PATH:$HOME/.cargo/bin && \
 #	cargo install --git https://github.com/paritytech/polkadot.git --tag v0.4.3 polkadot
 
+#RUN curl https://sh.rustup.rs -sSf | sh -s -- -y && \
+#	export PATH=$PATH:$HOME/.cargo/bin && \
+#	rustup default nightly && \
+#    rustup target add wasm32-unknown-unknown --toolchain nightly && \
+#    cargo +nightly install --git https://github.com/alexcrichton/wasm-gc && \
+#    rustup default stable && \
+#    rustup update && \
+#	cargo install --git https://github.com/paritytech/polkadot.git --tag v0.4.3 polkadot
+
+# https://wiki.polkadot.network/en/latest/polkadot/node/guides/how-to-validate/
 RUN curl https://sh.rustup.rs -sSf | sh -s -- -y && \
 	export PATH=$PATH:$HOME/.cargo/bin && \
-	rustup default nightly && \
-    rustup target add wasm32-unknown-unknown --toolchain nightly && \
-    cargo +nightly install --git https://github.com/alexcrichton/wasm-gc && \
-    rustup default stable && \
     rustup update && \
-	cargo install --git https://github.com/paritytech/polkadot.git --tag v0.4.3 polkadot
+    git checkout v0.4.3 && \
+    git pull origin v0.4.3 && \
+    ./scripts/init.sh && \
+    ./scripts/build.sh && \
+    cargo install --path ./ --force
 
 
 RUN cp /root/.cargo/bin/polkadot /usr/local/bin/
