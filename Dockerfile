@@ -23,6 +23,9 @@ RUN apt-get update && \
 RUN curl https://sh.rustup.rs -sSf | sh -s -- -y && \
 	export PATH=$PATH:$HOME/.cargo/bin && \
     rustup update && \
+    git clone https://github.com/paritytech/polkadot.git
+    # To update your node. Run from this step.
+    cd polkadot
     git checkout v0.4.3 && \
     git pull origin v0.4.3 && \
     ./scripts/init.sh && \
