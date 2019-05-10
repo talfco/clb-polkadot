@@ -26,7 +26,7 @@ RUN curl https://sh.rustup.rs -sSf | sh -s -- -y && \
     git clone https://github.com/paritytech/polkadot.git  && \
     cd polkadot  && \
     git checkout v0.4.3 && \
-    git pull origin v0.4.3 && \
+    git pull origin v0.4.4 && \
     ./scripts/init.sh && \
     ./scripts/build.sh && \
     cargo install --path ./ --force
