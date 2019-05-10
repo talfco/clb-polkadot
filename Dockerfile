@@ -65,4 +65,7 @@ RUN apt-get update && \
 #    ip6tables -A INPUT -j sshguard  && \
 #    service sshguard restart
 
-RUN mkdir /data
+EXPOSE 30333 9933 9944
+VOLUME ["/root/.local/share/Polkadot"]
+
+CMD ["/root/.cargo/bin/polkadot"]
